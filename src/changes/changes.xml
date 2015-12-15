@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <title>Change Notes</title>
+    <author email="andre.winkler@web.de">Andre Winkler</author>
+  </properties>
+  <body>
+
+    <release version="awtools-basic-1.3.0_a" date="2015-01-13"
+         description="POM update">
+      <action dev="andrewinkler" type="removed" date="2015-02-21">
+        Removed the assembly configuration from the POM. Was never used!
+      </action>
+    </release>
+
+    <release version="awtools-basic-1.3.0" date="2015-01-13"
+         description="POM update">
+      <action dev="andrewinkler" type="add" date="2013-09-28">
+        First use of Java 7 try statement in FTPWrapper.
+      </action>
+      <action dev="andrewinkler" type="update" date="2015-01-07">
+        A new master POM and deployment site.
+      </action>
+    </release>
+
+    <release version="awtools-basic-1.2.0" date="2013-07-27"
+         description="IntelliJ.">
+      <action dev="andrewinkler" type="add" date="2013-07-24">
+        Added FTPWrapper.
+      </action>
+      <action dev="andrewinkler" type="update" date="2012-05-29">
+        Transform an array to a string.
+      </action>
+      <action dev="andrewinkler" type="update" date="2012-05-24">
+        Some code clean up.
+      </action>
+    </release>
+
+    <release version="awtools-basic-1.1.0" date="2013-03-19"
+         description="Java 7. Deprecation removal.">
+      <action dev="andrewinkler" type="update" date="2012-03-21s">
+        A new project homepage outfit.
+      </action>
+      <action dev="andrewinkler" type="update" date="2012-03-19">
+        Java 7. Round up some tests. Removed some deprecated methods.
+      </action>
+    </release>
+  
+    <release version="awtools-basic-1.0.1" date="2012-03-03"
+         description="Bugfix.">
+      <action dev="andrewinkler" type="update" date="2012-03-03">
+        Fixed NumberUtilsTest. Produced another output on Linux.
+      </action>
+    </release>
+
+    <release version="awtools-basic-1.0.0-M1" date="2011-12-07"
+         description="Version updates.">
+      <action dev="andrewinkler" type="update" date="2011-11-13">
+        Fixed class NumberUtils. Used a static number formatter.
+      </action>
+      <action dev="andrewinkler" type="update" date="2011-11-13">
+        Rename to de.awtools.
+      </action>
+      <action dev="andrewinkler" type="update" date="2011-11-13">
+        Update to Maven 3, Groovy 1.8 and fest-assert 1.4.
+      </action>
+    </release>
+
+    <release version="gluehloch-util-0.15.2" date="2011-04-xx"
+         description="Version updates.">
+      <action dev="andrewinkler" type="update" date="2011-04-22">
+        Some version updates.
+      </action>
+    </release>
+
+    <release version="gluehloch-util-0.15.1" date="2011-01-09"
+         description="Using the FEST assertions.">
+      <action dev="andrewinkler" type="update" date="2010-12-11">
+        Moved to the FEST assertion framework.
+      </action>
+    </release>
+
+    <release version="gluehloch-util-0.15.0" date="2010-08-03"
+         description="Dependency clean up.">
+      <action dev="andrewinkler" type="remove" date="2010-08-01">
+        Moved the xml classes to 'awtools-xml'.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2010-08-01">
+        Moved the language classes to 'awtools-lang'.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2010-07-23">
+        Moved the FileFilter class to swinger-commons.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2010-07-23">
+        Changed the file handling of class WinFileUtils. The method
+        findFiles uses a File parameter instead of a String.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2010-07-23">
+        Removed the de.gluehloch.mail package to an own project
+        'awtools-mail'.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2010-07-22">
+        Removed the de.gluehloch.bean package to an own project
+        'awtools-beanutils'.
+      </action>
+      <action dev="andrewinkler" type="update" date="2010-07-22">
+        Changed from common-loggings and log4j to sl4j.
+      </action>
+    </release>
+
+    <release version="gluehloch-util-0.14.0" date="2010-02-14"
+         description="Various changes.">
+      <action dev="andrewinkler" type="update" date="2010-02-14">
+        Update auf Groovy 1.7.0.
+      </action>
+      <action dev="andrewinkler" type="add" date="2010-01-15">
+        WinIOUtils um die Methoden #createTempDir() und #recursiveDelete
+        erweitert zur einfachen Verwaltung von temporären Verzeichnissen.
+      </action>
+      <action dev="andrewinkler" type="add" date="2009-12-16">
+        Ein Testfall für den POP3Receiver. POP3Receiver fungiert als
+        Interface. Die Klassen DefaultPOP3Receiver und POP3ReceiverDummy
+        als Implementierung der Schnittstelle. Wobei der POP3ReceiverDummy
+        für die Testfallerstellung gedacht ist.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2009-06-11">
+        WinFileUtils#countDirLevel() funktioniert mit Root-Verzeichnissen.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2009-05-26">
+        PropertiesGlueConfig arbeitet mit schlechter TEMP Datei.
+      </action>
+      <action dev="andrewinkler" type="update" date="2008-10-21">
+        Das Encoding aller Textdateien ist auf UTF-8 umgestellt
+        Kleiner Test: äöü ÄÖÜ ß.
+      </action>
+    </release>
+
+    <release version="gluehloch-util-0.13.0" date="2009-02-20"
+         description="Feb 2009 Update">
+      <action dev="andrewinkler" type="update" date="2008-10-21">
+        Das Encoding aller Textdateien ist auf UTF-8 umgestellt
+        Kleiner Test: äöü ÄÖÜ ß.
+      </action>
+      <action dev="andrewinkler" type="add" date="2008-09-24">
+        Utility Methoden fuer das Anlegen und Initialisieren von Listen.
+      </action>
+      <action dev="andrewinkler" type="add" date="2008-05-27">
+        Beispiel fuer den Einsatz von Mockito im Test-Verzeichnis im
+        Paket example.mockito.
+      </action>
+      <action dev="andrewinkler" type="add" date="2008-08-18">
+        Resourcen-Enum / Internationalisierung. Als Vorlage dient ein
+        Beispiel aus dem Javamagazin der Ausgabe 04/08. Die Klassen
+        Translator und TranslatorFactory werden von ResourceUtil als
+        Ergänzung zu ResourceBundle verwendet.
+      </action>
+    </release>
+
+    <release version="gluehloch-util-0.12.0" date="2008-04-10"
+         description="April-Update">
+      <action dev="andrewinkler" type="add" date="2008-02-27">
+        Utility WinUtils#replacePlaceholder zur Ersetzung von ${...}
+        Ausdruecken anhand einer Map mit moeglichen Ersetzungen.
+      </action>
+      <action dev="andrewinkler" type="add" date="2008-03-26">
+        Commons-Configuration wird durch eigene Implementierung ersetzt. Mit
+        Maven hatte ich ein Problem, wenn es galt CombinedConfigurations im
+        Zusammenhang mit ${...} Ausdruecken zu verarbeiten. Siehe auch zu
+        diesem Thema auf der Eingangsseite.
+      </action>
+    </release>
+
+    <release version="winutil-0.11.0" date="2008-02-22"
+         description="PropertyHolder Ergaenzung">
+      <action dev="andrewinkler" type="add" date="2008-01-29">
+        Cobertura als Test-Coverage Tool im Testeinsatz.
+      </action>
+      <action dev="andrewinkler" type="update" date="2008-01-29">
+        Update auf Groovy 1.5.1.
+      </action>
+      <action dev="andrewinkler" type="add" date="2008-01-10">
+        #getString(), #getLong(), #getInt() und #getFile() Methoden mit
+        entsprechenden Default-Value Partner-Methoden im PropertyHolder.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2008-01-03">
+        Der PropertyHolder liest in folgender Reihenfolge: Classpath, UserHome
+        und anschließend System. Der nächste überschreibt ggf. den
+        vorhergehenden.
+      </action>
+      <action dev="andrewinkler" type="add" date="2007-12-13">
+        Im Hintergrund des PropertyHolders arbeitet Commons-Configuration.
+        Damit können dann auch Platzhalter in der Form ${...} in den Property
+        Dateien verwendet werden. Optional kann eine Klasse der Methode
+        #setClasspathFileName() uebergeben werden, deren ClassLoader dann
+        verwendet wird.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2007-12-05">
+        Falls die Datei in 'userHomeFileName' nicht gefunden wird, wird diese
+        ignoriert und führt zu keinem Abbruch.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2007-12-04">
+        PropertyHolder speichert die Eigenschaften nicht in der mit
+        Eigenschaft 'userHomeFileName' angegebenen Datei.
+      </action>
+      <action dev="andrewinkler" type="update" date="2007-12-10">
+        Umstellung auf JUnit 4.4.
+      </action>
+      <action dev="andrewinkler" type="update" date="2007-12-12">
+        Die LoggerFactory wird im ganzen gluehloch-util Paket verwendet.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2007-12-18">
+        Das Collections Paket entfernt.
+      </action>
+    </release>
+
+    <release version="winutil-0.10.0" date="2007-11-10"
+         description="Update">
+      <action dev="andrewinkler" type="update" date="2007-10-05">
+        Groovy-1.1-rc und commons-io 1.3.1.
+      </action>
+    </release>
+
+    <release version="winutil-0.9.0" date="2007-09-27"
+         description="Update">
+      <action dev="andrewinkler" type="add" date="2007-08-15">
+        PropertyHolder fuer die Verwaltung von Eigenschaften aus dem System,
+        aus dem Benutzerverzeichnis und aus dem Klassenpfad.
+      </action>
+      <action dev="andrewinkler" type="update" date="2007-08-15">
+        Update auf Groovy Beta 1.1 und aktuelle Maven-Groovy-Plugin.
+      </action>
+      <action dev="andrewinkler" type="add" date="2007-08-17">
+        Groovy Beispiele fuer das Hinzufuegen von Methoden zu einem Objekt
+        zur Laufzeit. Thema: Feuern von PropertyChangeEvents.
+      </action>
+      <action dev="andrewinkler" type="update" date="2007-08-17">
+        Update auf commons-lang-2.3
+      </action>
+      <action dev="andrewinkler" type="fix" date="2007-08-26">
+        XSLTransformer loescht das Target-File, wenn dieses bereits existiert.
+        Das Setzen der Source und Target Verzeichnisse kann nun optional
+        ueber echte File Objekte erfolgen.
+      </action>
+    </release>
+
+    <release version="winutil-0.8.0" date="2007-07-14"
+         description="Update. Verwendung von Groovy">
+      <action dev="andrewinkler" type="add" date="2007-07-09">
+        Eine Doku-Seite für die PropertyChangeEvent Generierung. Im Projekt
+        extistieren momentan zwei Ansätze:
+        PropertyMediatorLazyDynaBean und PropertyMediatorDynaBean bzw.
+        die Versuche mit Groovy im Testbereich.
+      </action>
+      <action dev="andrewinkler" type="add" date="2007-05-08">
+        Testklassen fuer den Umgang mit Groovy als Testwerkzeug bzw.
+        als Embedded-Script.
+      </action>
+      <action dev="andrewinkler" type="update" date="2007-04-11">
+        Maven-Site-Skin auf stylus umgestellt. TODO fuer den Header.
+        Das 'changelog' Plugin integriert in den Reports.
+      </action>
+      <action dev="andrewinkler" type="update" date="2007-03-05">
+        Javadoc angepasst: winutil nach gluehloch-util und Jahreszahl
+        auf 2007 hochgesetzt.
+      </action>
+      <action dev="andrewinkler" type="add" date="2007-03-05">
+        LoggerFactory fuer das Generieren von klassenbezogenen Loggern. Die
+        Idee stammt aus 'The Java Specialist' zu finden unter
+        http://www.javaspecialists.co.za
+      </action>
+    </release>
+
+    <release version="winutil-0.7.0" date="2007-02-17"
+         description="Update.">
+      <action dev="andrewinkler" type="update" date="2007-02-16">
+        Die Methode WinFileUtils#createFilePath() bleibt drin.
+        Koennte durch die Methode FileUtils#forceMkdir(File) aus dem
+        Jakarta-Commons IOUtils ersetzt werden. WinFileUtils verwendet
+        eine etwas andere Semantik bei der Erstellung von Pfaden.
+      </action>
+      <action dev="andrewinkler" type="add" date="2006-11-17">
+        Die Dependency commons-logging-api und commons-logging-adapters
+        entfernt.
+      </action>
+      <action dev="andrewinkler" type="add" date="2006-11-17">
+        Der XSLTransformer kann ueber einen InputStream, ein File oder einen
+        einfachen String (als File-Bezeichner) gefuettert werden.
+      </action>
+      <action dev="andrewinkler" type="update" date="2006-12-13">
+        Umbenennung der BeanFactory in BeanInstanceUtils. Die BeanFactory ist
+        bereits durch Spring belegt.
+      </action>
+    </release>
+
+    <release version="winutil-0.6.0" date="2006-11-08"
+         description="Umstellung auf Java 5 und Maven 2.">
+      <action dev="andrewinkler" type="update" date="2006-11-07">
+        Alle Logger Ausgaben auf debug. Udpate auf Version commons-logging 1.1.
+        Der Artefaktbezeichner 'util' wird in 'gluehloch-util' umbenannt.
+      </action>
+      <action dev="andrewinkler" type="update" date="2006-09-29">
+        Umstellung auf Java 5. Einsatz von Maven2.
+      </action>
+      <action dev="andrewinkler" type="update" date="2006-09-29">
+        Umbenennung der Pakete von de.winkler.util nach de.gluehloch.util.
+      </action>
+      <action dev="andrewinkler" type="update" date="2006-07-29">
+        Umstellung von commons-lang-2.0 auf 2.1.
+      </action>
+      <action dev="andrewinkler" type="update" date="2006-07-29">
+        FileUtils in WinFileUtils und IOUtils in WinIOUtils umbenannt
+        wegen Kollision zu Apache Jakarta-Commons IO (FileUtils)
+        Bibliothek.
+      </action>
+    </release>
+
+    <release version="winutil-0.5.0" date="2006-06-26"
+         description="Sommer 2006 Release.">
+      <action dev="andrewinkler" type="add" date="2005-07-07">
+        WinString und Converter aufgeraeumt und duch die Klassen NumberUtils
+        bzw. DateUtils ersetzt.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2005-06-29">
+        Den Abhaengigkeit zu commons-configuration entfernt. Ebenso alle
+        Methoden zum Konvertieren von 'Configuration' auf 'Properties'.
+      </action>
+      <action dev="andrewinkler" type="update" date="2005-10-06">
+        Die java.text.MessageFormat Klasse fuer das Paket
+        de.winkler.util.language statt der Eigenimplementierung verwendet.
+      </action>
+      <action dev="andrewinkler" type="update" date="2006-05-15">
+        dom4j von 1.4 auf 1.6.1 umgestellt.
+      </action>
+    </release>
+
+    <release version="winutil-0.4.0" date="2005-12-16"
+         description="Winter 2005 Release.">
+      <action dev="andrewinkler" type="add" date="2005-03-26">
+        Die DynaBeans aus commons-beanutils mit dem PropertyChange Mechanismus
+        erweitert.
+      </action>
+      <action dev="andrewinkler" type="add" date="2005-03-26">
+        Methode zum Konvertieren von Arrays in Listen.
+      </action>
+      <action dev="andrewinkler" type="add" date="2005-03-12">
+        Eine Klasse POP3Receiver zum Empfangen von EMails aus einem
+        POP3 Account.
+      </action>
+      <action dev="andrewinkler" type="update" date="2004-06-27">
+        Der Converter besitzt eine Methode zum Konvertieren eines
+        Stacktrace in einen String.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2004-06-27">
+        Die SecureIndexList wieder entfernt und durch ein SortedIndexList
+        ersetzt. SortedIndexList fuer sortierte, indizierte Listen. Arbeitet
+        intern mit einem SortedSet bzw. TreeSet.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2004-10-08">
+        Die ANT Tasks fuer das Starten und Stoppen eines Tomcat Servers
+        entfernt und in ein separates Projekt ausgegliedert.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2004-10-19">
+        Die Klasse SwingWorker entfernt und ins Swinger Projekt verlagert.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2004-10-19">
+        Die maven.xml Datei entfernt. Alle entsprechenden Goals sind
+        im maven-gluehloch-plugin definiert.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2004-11-10">
+        Ein paar final Definitionen in TransformerUtils eingebaut.
+      </action>
+      <action dev="andrewinkler" type="update" date="2004-11-10">
+        Update auf commons-configuration-1.0.
+      </action>
+      <action dev="andrewinkler" type="add" date="2004-11-10">
+        Neue Klasse XSLTransformer fuer die XML/XSL Transformation.
+      </action>
+      <action dev="andrewinkler" type="add" date="2004-11-11">
+        In FileUtils existiert eine neue Methode fuer das Anlegen
+        von Dateien mit Verzeichnisstruktur. Diese Methode stellt
+        sicher, dass bei Neuanlage die noetigen Verzeichnisse vorhanden
+        sind.
+      </action>
+      <action dev="andrewinkler" type="update" date="2004-11-11">
+        Dokumentation zu den einzelnen Paketen eingebaut. Mit Ausnahme
+        des 'string' Pakets. Dieses wird in den naechsten Versionen
+        entfernt.
+      </action>
+      <action dev="andrewinkler" type="add" date="2004-11-11">
+        IOUtils erweitert um das sichere Schliessen von Streams/Writern.
+        Aehnliche Funktionen bietet das Jakarta-Commons Projekt IOUtils.
+      </action>
+    </release>
+
+    <release version="winutil-0.3.0" date="2004-06-01"
+         description="Verschiedene Bugfixes im Zusammenhang mit IO und die neue Translator Klasse.">
+      <action dev="andrewinkler" type="add" date="2004-04-08">
+        Einen Translator eingebaut. Liefert die sprachabhaengigen Texte
+        zu einem Schluessel. Ein Wrapper fuer ResourceBundle der Java API.
+      </action>
+      <action dev="andrewinkler" type="fix" date="2004-04-08">
+        Das Goal 'test' funktioniert wieder. Die abhaengigen JARs
+        sind im Projektdeskriptor eingetragen.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2004-05-27">
+        Den Boolean Converter entfernt.
+      </action>
+      <action dev="andrewinkler" type="add" date="2004-05-28">
+        Eine XML Utility fuer das Transformieren von dom4j Dokumenten
+        mit XSLT.
+      </action>
+    </release>
+
+    <release version="winutil-0.2.0" date="2004-02-14"
+         description="Ueberfluessige Klassen ersetzt und konsolidiert.">
+      <action dev="andrewinkler" type="add" date="2004-02-14">
+        SecureIndexList und die Ant-Tomcat-Unterstuetzung eingebaut.
+      </action>
+      <action dev="andrewinkler" type="remove" date="2004-02-14">
+        Den winutil-Logger entfernt sowie die StringUtilities, deren
+        Funktionalitaet durch StringUtils des Jakarta-Apaches Projekt
+        'commons-lang' ersetzt wird.
+      </action>
+    </release>
+
+    <release version="winutil-0.1.0" date="2003-01-16"
+         description="Das erste Release.">
+      <action dev="andrewinkler" type="icon_info_sml" date="2004-01-16">
+        Grundsteinlegung. Erstes 0.x.0 Release.
+      </action>
+    </release>
+
+  </body>
+  <footer>
+    <legal>
+      Copyright (c) @year@ The 'winutil' Project All rights reserved.
+      $Revision: 4007 $ $Date: 2015-02-21 19:30:58 +0100 (Sa, 21. Feb 2015) $
+    </legal>
+  </footer>
+</document>

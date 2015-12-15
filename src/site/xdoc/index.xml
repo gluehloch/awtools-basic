@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <author email="andre.winkler@web.de">Andre Winkler</author>
+    <title>AWTools Basic</title>
+  </properties>
+  <body>
+    <section name="AWTools Basic">
+      <p>
+        Ein Leitthema oder eine Spezialisierungsform existiert für dieses Projekt nicht.
+        Aus diesem Projekt heraus sind die Projekte awtools-mail, awtools-lang, awtools-beanutils,
+        awtools-config, awtools-xml entstanden.
+      </p>
+      <p>
+        Als das kleinste aller meiner Sourceforge Projekte ist dieses Projekt
+        zugleich meine technische Spielwiese für Änderungen am Build-System.
+        Bei der Umstellung auf Java 5, die Migration auf Maven2, stellte dieses
+        Projekt immer die Vorhut. Die größeren Projekte zogen bei erfolgreicher
+        Migration nach.
+      </p>
+    </section>
+    <subsection name="Release 1.3.0">
+      <p>
+        Umstellung auf die neue POM Struktur. Inhaltlich und schnittstellenbezogen
+        gab es keine Änderung.
+      </p>
+    </subsection>
+    <subsection name="Release 1.2.0">
+      <p>
+        The missing release!
+      </p>
+    </subsection>
+    <subsection name="Release 1.1.0">
+      <p>
+        Java 7 compiler. Updated some Maven plugin dependencies.
+      </p>
+    </subsection>
+    <subsection name="Release 1.0.1">
+      <p>
+        Fixed NumberUtilsTest. Produced another output on Linux.
+      </p>
+    </subsection>
+    <subsection name="Release 1.0.0 M1">
+      <p>
+        Umbenennung nach awtools-basic.
+      </p>
+    </subsection>
+    <subsection name="Release 0.15.0">
+      <p>
+        Aufsplittung in die Projekte awtools-config, awtools-mail, awtools-lang, awtools-beanutils
+        und awtools-xml. Ziel ist die Reduzierung der Abhängigkeiten.
+      </p>
+    </subsection>
+    <subsection name="Release 0.14.0">
+      <p>
+        Die 14er Version wurde auf UTF-8 umgestellt. Die Testabdeckung konnte erhöht
+        werden.
+      </p>
+    </subsection>
+    <subsection name="Release 0.13.0">
+      <p>
+        Im Testverzeichnis <code>src/test/java</code> bzw. in
+        <code>src/test/groovy</code> findet sich ein Paket
+        <code>example</code>. Hier werden zukünftig verschiedene Code-
+        Beispiele liegen. Den Anfang macht ein Beispiel mit Mockito.
+      </p>
+      <p>
+        Neu sind die Klassen ResourceKey und ResourceUtil zur Verwaltung von
+        Language-Property Dateien. 
+      </p>
+    </subsection>
+    <subsection name="Release 0.12.0">
+      <p>
+        Commons-configuration verursacht ein bis dato ungelöstes Problem:
+        Die Methode #interpolatedConfiguration() im Zusammenhang mit der Klasse
+        CombinedConfiguration läßt Eigenschaften verschwinden! Dies aber nur,
+        wenn es zur Ausführung der Testklassen unter Maven kommt. Aus der IDE
+        heraus mit allen geöffneten Sub-Projekten gibt es keine Probleme.
+        Ich vermute ein subtiles Klassenpfad Problem unter Maven oder ein
+        inneres Problem der Klasse CombinedConfiguration. Ein Ticket zu diesem
+        Thema habe ich über Google nicht gefunden. Dies ist jedenfalls der 
+        Grund für das Paket configuration, in dem die Klassen CombinedGlueConfig
+        und GlueConfig commons-configuration, wenn auf eine 'leichte Art',
+        imitieren.
+      </p>
+    </subsection>
+    <subsection name="Release 0.11.0">
+      <p>
+        PropertyHolder ergänzt: Verschiedene #getXxx Methoden zur Konvertierung
+        in den erwarteten Typen. Im Hintergrund arbeitet commons-configuration
+        so dass nun ${...} Platzhalter in den Eigenschaften verwendet werden
+        können. Die Priorität der Eigenschaften wurde neu festgelegt:
+        (Höchste Prio rechts, niedrigste Prio links) 'Klassenpfad' nach
+        'UserHome' nach 'System'.
+      </p>
+    </subsection>
+    <subsection name="Release 0.10.0">
+      <p>
+        Update Version: Groovy-0.10.0 und commons-io-1.3.1
+      </p>
+    </subsection>
+    <subsection name="Release 0.9.0">
+      <p>
+        Groovy in Version 1.1-beta vorhanden. Die Testklasse
+        PropertyChangeSupportComposite im Paket src/test/groovy
+        versucht eine Lösung für das dynamische Feuern von
+        PropertyChangeEvents beim Aufruf von settern Methoden.
+      </p>
+    </subsection>
+    <subsection name="Release 0.8.0">
+      <p>
+        In Release 0.8 ist erstmals Groovy als Skriptsprache für die Unit
+        Tests eingeführt.
+      </p>
+    </subsection>
+  </body>
+</document>

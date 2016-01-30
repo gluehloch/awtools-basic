@@ -1,8 +1,7 @@
 /*
- * $Id: FTPWrapper.java 2993 2011-11-24 19:51:48Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2004-2013 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2004-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -47,8 +46,7 @@ import de.awtools.basic.LoggerFactory;
 /**
  * Ein Wrapper für den Apache FTPClient.
  *
- * @version $LastChangedRevision: 2993 $ $LastChangedDate: 2011-11-24 20:51:48 +0100 (Thu, 24 Nov 2011) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public class FTPWrapper {
 

@@ -1,8 +1,7 @@
 /*
- * $Id: FindFilesTest.java 3725 2013-05-24 18:34:57Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2011 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -29,7 +28,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -42,14 +40,12 @@ import org.junit.Test;
 import org.slf4j.Logger;
 
 import de.awtools.basic.LoggerFactory;
-import de.awtools.basic.file.AWToolsFileUtils;
 
 /**
  * Testet <code>WinFileUtils.findFiles()</code>. Für die Tests wird im
  * USER_HOME Verzeichnis ein <code>.build-tmp/</code> Verzeichnis angelegt.
  * 
- * @version $LastChangedRevision: 3725 $ $LastChangedDate: 2013-05-24 20:34:57 +0200 (Fr, 24. Mai 2013) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public class FindFilesTest {
 

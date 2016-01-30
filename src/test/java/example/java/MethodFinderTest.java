@@ -1,8 +1,7 @@
 /*
- * $Id: org.eclipse.jdt.ui.prefs 823 2007-07-05 10:24:57Z andrewinkler $
  * ============================================================================
  * Project gluehloch-util
- * Copyright (c) 2004-2014 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2004-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -33,8 +32,7 @@ import org.junit.Test;
 /**
  * Which method will be called?
  * 
- * @version $LastChangedRevision: 1502 $ $LastChangedDate: 2009-02-20 22:02:51 +0100 (Fr, 20 Feb 2009) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public class MethodFinderTest {
 

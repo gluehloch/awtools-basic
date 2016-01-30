@@ -1,8 +1,7 @@
 /*
- * $Id: AWTools.java 3948 2014-04-26 06:25:09Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2013 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -47,8 +46,7 @@ import org.apache.commons.lang.Validate;
 /**
  * Some helper methods.
  * 
- * @version $LastChangedRevision: 3948 $ $LastChangedDate: 2014-04-26 08:25:09 +0200 (Sa, 26. Apr 2014) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public final class AWTools {
 

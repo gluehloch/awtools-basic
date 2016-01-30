@@ -1,8 +1,7 @@
 /*
- * $Id: AWToolsIOUtils.java 3725 2013-05-24 18:34:57Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2013 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -45,8 +44,7 @@ import de.awtools.basic.LoggerFactory;
  * Utility Klasse für IO-Operationen. Siehe auch
  * <a href="http://commons.apache.org/io/api-release/index.html?org/apache/commons/io/IOUtils.html">IOUtils</a>.
  *
- * @version $LastChangedRevision: 3725 $ $LastChangedDate: 2013-05-24 20:34:57 +0200 (Fr, 24. Mai 2013) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public class AWToolsIOUtils {
 

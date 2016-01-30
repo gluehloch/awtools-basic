@@ -1,8 +1,7 @@
 /*
- * $Id: NumberUtils.java 3981 2015-01-07 18:20:13Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2011 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -36,8 +35,7 @@ import javax.swing.text.MaskFormatter;
  * Eine Utility Klasse für das Formatieren von Zahlen sowie für das Parsen
  * von Zahlen aus Strings heraus.
  * 
- * @version $LastChangedRevision: 3981 $ $LastChangedDate: 2015-01-07 19:20:13 +0100 (Mi, 07. Jan 2015) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  * 
  * @todo Es wird das Default-Locale für alle Formatierungsaufgaben verwendet.
  * Zusätzlich wird momentan der deutsche Dezimaltrenner ',' durch ein '.'

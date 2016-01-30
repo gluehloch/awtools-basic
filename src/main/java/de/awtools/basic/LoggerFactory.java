@@ -1,8 +1,7 @@
 /*
- * $Id: LoggerFactory.java 2984 2011-11-13 17:28:22Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2011 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -31,8 +30,7 @@ import org.slf4j.Logger;
  * Eine Factory für das Generieren von klassenbezogenen commons-logging
  * Loggern.
  * 
- * @author  $Author: andrewinkler $
- * @version $Revision: 2984 $ $Date: 2011-11-13 18:28:22 +0100 (So, 13. Nov 2011) $
+ * @author Andre Winkler
  */
 public class LoggerFactory {
 

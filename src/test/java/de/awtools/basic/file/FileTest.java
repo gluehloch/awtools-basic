@@ -1,8 +1,7 @@
 /*
- * $Id: FileTest.java 3725 2013-05-24 18:34:57Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2011 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -34,8 +33,7 @@ import org.junit.Test;
 /**
  * Test for the Java {@link File} class.
  * 
- * @version $LastChangedRevision: 3725 $ $LastChangedDate: 2013-05-24 20:34:57 +0200 (Fr, 24. Mai 2013) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public class FileTest {
 

@@ -1,8 +1,7 @@
 /*
- * $Id: GroovyEmbeddedTest.java 3725 2013-05-24 18:34:57Z andrewinkler $
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2011 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -41,8 +40,7 @@ import groovy.util.GroovyScriptEngine;
 /**
  * Testet das Starten der Groovy Embedded Variante.
  * 
- * @author $Author: andrewinkler $
- * @version $Revision: 3725 $ $Date: 2013-05-24 20:34:57 +0200 (Fr, 24. Mai 2013) $
+ * @author Andre Winkler
  */
 public class GroovyEmbeddedTest {
 

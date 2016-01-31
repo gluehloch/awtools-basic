@@ -44,62 +44,58 @@ import groovy.util.GroovyScriptEngine;
  */
 public class GroovyEmbeddedTest {
 
-    /**
-     * Testet die native Einbindung von Groovy. Alternativ existiert auch eine
-     * allgemeinere Variante mit dem Bean-Scripting-Framework.
-     */
-    @Test
-    public void testStartGroovyEmbedded() {
-        Binding binding = new Binding();
-        binding.setVariable("foo", new Integer(2));
-        GroovyShell shell = new GroovyShell(binding);
+	/**
+	 * Testet die native Einbindung von Groovy. Alternativ existiert auch eine
+	 * allgemeinere Variante mit dem Bean-Scripting-Framework.
+	 */
+	@Test
+	public void testStartGroovyEmbedded() {
+		Binding binding = new Binding();
+		binding.setVariable("foo", new Integer(2));
+		GroovyShell shell = new GroovyShell(binding);
 
-        Object value =
-                shell.evaluate("println 'Hello World!'; x = 123; return foo * 10");
+		Object value = shell.evaluate("println 'Hello World!'; x = 123; return foo * 10");
 
-        assertThat(value).isEqualTo(new Integer(20));
-        assertThat(binding.getVariable("x")).isEqualTo(new Integer(123));
-    }
+		assertThat(value).isEqualTo(new Integer(20));
+		assertThat(binding.getVariable("x")).isEqualTo(new Integer(123));
+	}
 
-    @Test
-    public void testStartGroovyEmbeddedCompileScript() throws Exception {
-        GroovyScriptEngine engine =
-                new GroovyScriptEngine("src/test/resources", this.getClass()
-                    .getClassLoader());
+	@Test
+	public void testStartGroovyEmbeddedCompileScript() throws Exception {
+		GroovyScriptEngine engine = new GroovyScriptEngine("src/test/resources", this.getClass().getClassLoader());
 
-        engine.run("de/awtools/basic/groovy/Operator.groovy", new Binding());
+		engine.run("de/awtools/basic/groovy/Operator.groovy", new Binding());
 
-        Class<?> clazz =
-                engine.loadScriptByName("de/awtools/basic/groovy/Operator.groovy");
-        IOperator op = (IOperator) clazz.newInstance();
-        assertThat(op.add(2, 3)).isEqualTo(5);
-    }
+		Class<?> clazz = engine.loadScriptByName("de/awtools/basic/groovy/Operator.groovy");
+		IOperator op = (IOperator) clazz.newInstance();
+		assertThat(op.add(2, 3)).isEqualTo(5);
+	}
 
-    @Test
-    public void testGroovyClassLoader_new() throws Exception {
-        // Achtung: Wenn die Datei in *.groovy umbenannt wird, wird diese
-        // Datei von Eclipse automatisch compiliert und in ein anderes
-        // Verzeichnis verschoben.
-        InputStream is =
-                this.getClass().getResourceAsStream("/Operator2.groov");
-        assertThat(is).isNotNull();
-        // Diese Variante funktioniert nicht aus Eclipse heraus. Die Groovy Dateien
-        // landen in ein anderes Verzeichnis, welches nicht im Klassenpfad liegt.
-        //        InputStream is = this.getClass().getResourceAsStream("/Operator2.groovy");
-        //        assertNotNull(is);
+	@Test
+	public void testGroovyClassLoader_new() throws Exception {
+		// Achtung: Wenn die Datei in *.groovy umbenannt wird, wird diese
+		// Datei von Eclipse automatisch compiliert und in ein anderes
+		// Verzeichnis verschoben.
+		InputStream is = this.getClass().getResourceAsStream("/Operator2.groov");
+		assertThat(is).isNotNull();
+		// Diese Variante funktioniert nicht aus Eclipse heraus. Die Groovy
+		// Dateien
+		// landen in ein anderes Verzeichnis, welches nicht im Klassenpfad
+		// liegt.
+		// InputStream is =
+		// this.getClass().getResourceAsStream("/Operator2.groovy");
+		// assertNotNull(is);
 
-        GroovyClassLoader gcl =
-                new GroovyClassLoader(this.getClass().getClassLoader());
-        InputStreamReader isr = new InputStreamReader(is);
-        GroovyCodeSource gcs =
-                new GroovyCodeSource(isr, "i dont´t know", "unknown");
-        Class<?> clazz = gcl.parseClass(gcs);
-        assertThat(clazz.newInstance()).isInstanceOf(IOperator.class);
+		GroovyClassLoader gcl = new GroovyClassLoader(this.getClass().getClassLoader());
+		InputStreamReader isr = new InputStreamReader(is);
+		GroovyCodeSource gcs = new GroovyCodeSource(isr, "i dont´t know", "unknown");
+		Class<?> clazz = gcl.parseClass(gcs);
+		assertThat(clazz.newInstance()).isInstanceOf(IOperator.class);
 
-        IOperator op = (IOperator) clazz.newInstance();
-        assertThat(op.add(2, 3)).isEqualTo(5);
+		IOperator op = (IOperator) clazz.newInstance();
+		assertThat(op.add(2, 3)).isEqualTo(5);
 
-        gcl.close();
-    }
+		gcl.close();
+	}
 
 }

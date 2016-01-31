@@ -37,84 +37,84 @@ import de.awtools.basic.NumberUtils;
 /**
  * Testet die Klasse {@link de.awtools.basic.NumberUtils}.
  * 
- * @version $LastChangedRevision: 3725 $ $LastChangedDate: 2013-05-24 20:34:57 +0200 (Fr, 24. Mai 2013) $
+ * @version $LastChangedRevision: 3725 $ $LastChangedDate: 2013-05-24 20:34:57
+ *          +0200 (Fr, 24. Mai 2013) $
  * @author by Andre Winkler, $LastChangedBy: andrewinkler $
  */
 public class NumberUtilsTest {
 
-    private static final double DELTA = 0.00001;
+	private static final double DELTA = 0.00001;
 
-    private static final Delta FEST_DELTA = Delta.delta(DELTA);
+	private static final Delta FEST_DELTA = Delta.delta(DELTA);
 
-    @Test
-    public void testNumberUtilsToInt() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setPatternAndLocale(Locale.GERMANY,
-            NumberUtils.DEFAULT_DECIMAL_FORMAT);
+	@Test
+	public void testNumberUtilsToInt() {
+		NumberUtils numberUtils = new NumberUtils();
+		numberUtils.setPatternAndLocale(Locale.GERMANY, NumberUtils.DEFAULT_DECIMAL_FORMAT);
 
-        assertThat(numberUtils.toInt("5")).isEqualTo(5);
-        assertThat(numberUtils.toInt("5,0")).isEqualTo(5);
-        assertThat(numberUtils.toInt("5,01")).isEqualTo(5);
-        assertThat(numberUtils.toInt("5a")).isEqualTo(5);
-        assertThat(numberUtils.toInt("5.0")).isEqualTo(50);
-        assertThat(numberUtils.toInt("5.00")).isEqualTo(500);
-    }
+		assertThat(numberUtils.toInt("5")).isEqualTo(5);
+		assertThat(numberUtils.toInt("5,0")).isEqualTo(5);
+		assertThat(numberUtils.toInt("5,01")).isEqualTo(5);
+		assertThat(numberUtils.toInt("5a")).isEqualTo(5);
+		assertThat(numberUtils.toInt("5.0")).isEqualTo(50);
+		assertThat(numberUtils.toInt("5.00")).isEqualTo(500);
+	}
 
-    @Test
-    public void testNumberUtilsToIntFail() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
-        try {
-            numberUtils.toInt("a5");
-            fail("Exception erwartet!");
-        } catch (Exception ex) {
-        }
+	@Test
+	public void testNumberUtilsToIntFail() {
+		NumberUtils numberUtils = new NumberUtils();
+		numberUtils.setLocale(Locale.GERMANY);
+		try {
+			numberUtils.toInt("a5");
+			fail("Exception erwartet!");
+		} catch (Exception ex) {
+		}
 
-        try {
-            numberUtils.toInt("a5.00");
-            fail("Exception erwartet!");
-        } catch (Exception ex) {
-        }
-    }
+		try {
+			numberUtils.toInt("a5.00");
+			fail("Exception erwartet!");
+		} catch (Exception ex) {
+		}
+	}
 
-    // ------------------------------------------------------------------------
+	// ------------------------------------------------------------------------
 
-    @Test
-    public void testNumberUtilsToDouble() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
-        assertThat(numberUtils.toDouble("5")).isEqualTo(5., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5,0")).isEqualTo(5., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5,01")).isEqualTo(5.01, FEST_DELTA);
-        assertThat(numberUtils.toDouble("5a")).isEqualTo(5., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5.0")).isEqualTo(50., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5.00")).isEqualTo(500., FEST_DELTA);
-    }
+	@Test
+	public void testNumberUtilsToDouble() {
+		NumberUtils numberUtils = new NumberUtils();
+		numberUtils.setLocale(Locale.GERMANY);
+		assertThat(numberUtils.toDouble("5")).isEqualTo(5., FEST_DELTA);
+		assertThat(numberUtils.toDouble("5,0")).isEqualTo(5., FEST_DELTA);
+		assertThat(numberUtils.toDouble("5,01")).isEqualTo(5.01, FEST_DELTA);
+		assertThat(numberUtils.toDouble("5a")).isEqualTo(5., FEST_DELTA);
+		assertThat(numberUtils.toDouble("5.0")).isEqualTo(50., FEST_DELTA);
+		assertThat(numberUtils.toDouble("5.00")).isEqualTo(500., FEST_DELTA);
+	}
 
-    @Test
-    public void testNumberUtilsToDoubleFail() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
-        try {
-            numberUtils.toDouble("a5");
-            fail("Exception erwartet!");
-        } catch (Exception ex) {
-        }
+	@Test
+	public void testNumberUtilsToDoubleFail() {
+		NumberUtils numberUtils = new NumberUtils();
+		numberUtils.setLocale(Locale.GERMANY);
+		try {
+			numberUtils.toDouble("a5");
+			fail("Exception erwartet!");
+		} catch (Exception ex) {
+		}
 
-        try {
-            numberUtils.toDouble("a5.00");
-            fail("Exception erwartet!");
-        } catch (Exception ex) {
-        }
-    }
+		try {
+			numberUtils.toDouble("a5.00");
+			fail("Exception erwartet!");
+		} catch (Exception ex) {
+		}
+	}
 
-    // ------------------------------------------------------------------------
+	// ------------------------------------------------------------------------
 
-    @Test
-    public void testFormat() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
-        assertThat(numberUtils.format(new Double(10.))).isEqualTo("10");
-    }
+	@Test
+	public void testFormat() {
+		NumberUtils numberUtils = new NumberUtils();
+		numberUtils.setLocale(Locale.GERMANY);
+		assertThat(numberUtils.format(new Double(10.))).isEqualTo("10");
+	}
 
 }

@@ -31,6 +31,6 @@ package example.mockito;
  */
 public interface InterfaceForMock {
 
-    public void doSomething();
+	public void doSomething();
 
 }

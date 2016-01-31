@@ -36,24 +36,24 @@ import org.junit.Test;
  */
 public class MockitoExampleTest {
 
-    @Test
-    public void testExampleMockito() {
-        InterfaceForMock ifm = mock(InterfaceForMock.class);
-        Worker worker = new Worker(ifm);
-        worker.doIt();
-        verify(ifm).doSomething();
-    }
+	@Test
+	public void testExampleMockito() {
+		InterfaceForMock ifm = mock(InterfaceForMock.class);
+		Worker worker = new Worker(ifm);
+		worker.doIt();
+		verify(ifm).doSomething();
+	}
 
-    private static class Worker {
-        private final InterfaceForMock ifm;
+	private static class Worker {
+		private final InterfaceForMock ifm;
 
-        Worker(final InterfaceForMock _ifm) {
-            ifm = _ifm;
-        }
+		Worker(final InterfaceForMock _ifm) {
+			ifm = _ifm;
+		}
 
-        public void doIt() {
-            ifm.doSomething();
-        }
-    }
+		public void doIt() {
+			ifm.doSomething();
+		}
+	}
 
 }

@@ -36,59 +36,68 @@ import org.junit.Test;
  */
 public class MethodFinderTest {
 
-    @Test
-    public void testMethodFinder() {
-        Master object = new Aaa();
-        String value = get(object);
-        assertThat(value, CoreMatchers.equalTo("Master"));
-        
-        Aaa a = new Aaa();
-        assertThat(get(a), CoreMatchers.equalTo("Aaa")) ;
-    }
+	@Test
+	public void testMethodFinder() {
+		Master object = new Aaa();
+		String value = get(object);
+		assertThat(value, CoreMatchers.equalTo("Master"));
 
-//    private <T> String get(T t) {
-//        return t.toString();
-//    }
-//
-    private String get(Master master) {
-        return "Master";
-    }
+		Aaa a = new Aaa();
+		assertThat(get(a), CoreMatchers.equalTo("aaa_Aaa"));
+		assertThat(to(a), CoreMatchers.equalTo("to_Aaa"));
 
-    private String get(Aaa aaa) {
-        return aaa.toString();
-    }
+		object = a; // And now the interesting stuff...
+		assertThat(get(object), CoreMatchers.equalTo("Master"));
+		assertThat(to(object), CoreMatchers.equalTo("to_Aaa"));
+	}
 
-    private String get(Bbb bbb) {
-        return bbb.toString();
-    }
+	public static <T> String to(T t) {
+		return "to_" + t.toString();
+	}
 
-    private String get(Ccc ccc) {
-        return ccc.toString();
-    }
+	private String get(Master master) {
+		return "Master";
+	}
 
-    private interface Master {
+	private String get(Aaa aaa) {
+		return "aaa_" + aaa.toString();
+	}
 
-    }
+	@SuppressWarnings("unused")
+	private String get(Bbb bbb) {
+		return "bbb_" + bbb.toString();
+	}
 
-    private class Aaa implements Master {
-        @Override
-        public String toString() {
-            return "Aaa";
-        }
-    }
+	@SuppressWarnings("unused")
+	private String get(Ccc ccc) {
+		return "ccc_" + ccc.toString();
+	}
 
-    private class Bbb implements Master {
-        @Override
-        public String toString() {
-            return "Bbb";
-        }
-    }
+	// ------------------------------------------------------------------------
 
-    private class Ccc implements Master {
-        @Override
-        public String toString() {
-            return "Ccc";
-        }
-    }
+	private interface Master {
+		String toString();
+	}
+
+	private class Aaa implements Master {
+		@Override
+		public String toString() {
+			return "Aaa";
+		}
+	}
+
+	private class Bbb implements Master {
+		@Override
+		public String toString() {
+			return "Bbb";
+		}
+	}
+
+	private class Ccc implements Master {
+		@Override
+		public String toString() {
+			return "Ccc";
+		}
+	}
 
 }

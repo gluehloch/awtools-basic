@@ -39,54 +39,53 @@ import org.slf4j.Logger;
  */
 public final class PropertyLoader {
 
-    /** Der private Logger der Klasse. */
-    private static final Logger log = LoggerFactory.make();
+	/** Der private Logger der Klasse. */
+	private static final Logger log = LoggerFactory.make();
 
-    /** Utility Klasse. */
-    private PropertyLoader() {
-    }
+	/** Utility Klasse. */
+	private PropertyLoader() {
+	}
 
-    /**
-     * Lädt eine Property-Datei aus dem Klassenpfad. Kann die Property Datei
-     * nicht gelesen werden, wird eine leere Map zurückgeliefert.
-     *
-     * @param fileName Der Filename der Property-Datei.
-     * @return Die Eigenschaften dieser Property-Datei.
-     */
-    public static Map<Object, Object> load(final String fileName) {
-        InputStream in =
-                PropertyLoader.class.getClassLoader().getResourceAsStream(
-                    fileName);
+	/**
+	 * Lädt eine Property-Datei aus dem Klassenpfad. Kann die Property Datei
+	 * nicht gelesen werden, wird eine leere Map zurückgeliefert.
+	 *
+	 * @param fileName
+	 *            Der Filename der Property-Datei.
+	 * @return Die Eigenschaften dieser Property-Datei.
+	 */
+	public static Map<Object, Object> load(final String fileName) {
+		InputStream in = PropertyLoader.class.getClassLoader().getResourceAsStream(fileName);
 
-        if (in == null) {
-            return throwsErrorMap(fileName);
-        }
+		if (in == null) {
+			return throwsErrorMap(fileName);
+		}
 
-        Properties props = new Properties();
-        try {
-            props.load(in);
-        } catch (IOException ex) {
-            return throwsErrorMap(fileName);
-        } finally {
-            try {
-                in.close();
-            } catch (IOException ex) {
-                // Wird ignoriert.
-            }
-        }
-        return props;
-    }
+		Properties props = new Properties();
+		try {
+			props.load(in);
+		} catch (IOException ex) {
+			return throwsErrorMap(fileName);
+		} finally {
+			try {
+				in.close();
+			} catch (IOException ex) {
+				// Wird ignoriert.
+			}
+		}
+		return props;
+	}
 
-    /**
-     * Liefert eine leere Map zurück und schreibt eine Fehlermeldung ins Log.
-     *
-     * @param fileName Die Datei, welche nicht gelesen werden konnte.
-     * @return Die leere Map.
-     */
-    private static Map<Object, Object> throwsErrorMap(final String fileName) {
-        log.debug("Property Datei '" + fileName
-            + "' konnte nicht gelesen werden!");
-        return new HashMap<>();
-    }
+	/**
+	 * Liefert eine leere Map zurück und schreibt eine Fehlermeldung ins Log.
+	 *
+	 * @param fileName
+	 *            Die Datei, welche nicht gelesen werden konnte.
+	 * @return Die leere Map.
+	 */
+	private static Map<Object, Object> throwsErrorMap(final String fileName) {
+		log.debug("Property Datei '" + fileName + "' konnte nicht gelesen werden!");
+		return new HashMap<>();
+	}
 
 }

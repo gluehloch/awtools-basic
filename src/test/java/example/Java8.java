@@ -1,7 +1,7 @@
 /*
  * ============================================================================
  * Project awtools-basic
- * Copyright (c) 2000-2016 by Andre Winkler. All rights reserved.
+ * Copyright (c) 2004-2016 by Andre Winkler. All rights reserved.
  * ============================================================================
  *          GNU LESSER GENERAL PUBLIC LICENSE
  *  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -22,29 +22,30 @@
  *
  */
 
-package de.awtools.basic.file;
+package example;
 
-import java.io.File;
+import static org.junit.Assert.assertThat;
 
-import static org.fest.assertions.Assertions.assertThat;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
 /**
- * Test for the Java {@link File} class.
+ * Test for some Java 8 feature.
  * 
- * @author by Andre Winkler
+ * @author Andre Winkler
  */
-public class FileTest {
+public class Java8 {
 
 	@Test
-	public void testFile() {
-		File userHomeDir = new File(System.getProperty("user.home"));
-		File userHomeDir_test = new File(userHomeDir, "test");
-		File userHomeDir_test_awtools = new File(userHomeDir_test, "awtools.txt");
+	public void testJoiningString() {
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
+		String commaSeparatedNumbers = numbers.stream().map(i -> i.toString()).collect(Collectors.joining(", "));
 
-		assertThat(userHomeDir_test_awtools.toString()).endsWith("awtools.txt");
-		System.out.println(userHomeDir_test_awtools);
+		assertThat(commaSeparatedNumbers, CoreMatchers.equalTo("1, 2, 3, 4"));
 	}
 
 }

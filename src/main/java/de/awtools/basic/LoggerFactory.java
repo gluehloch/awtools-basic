@@ -27,25 +27,25 @@ package de.awtools.basic;
 import org.slf4j.Logger;
 
 /**
- * Eine Factory für das Generieren von klassenbezogenen commons-logging
- * Loggern.
+ * Eine Factory für das Generieren von klassenbezogenen commons-logging Loggern.
  * 
  * @author Andre Winkler
  */
 public class LoggerFactory {
 
-    /**
-     * Erstellt einen klassenbezogenen Logger.
-     * <pre>
-     * private static final Log logger = LoggerFactory.make();
-     * </pre>
-     * 
-     * @return Liefert einen commons-logging <code>Log</code>.
-     */
-    public static Logger make() {
-        Throwable t = new Throwable();
-        StackTraceElement directCaller = t.getStackTrace()[1];
-        return org.slf4j.LoggerFactory.getLogger(directCaller.getClassName());
-    }
+	/**
+	 * Erstellt einen klassenbezogenen Logger.
+	 * 
+	 * <pre>
+	 * private static final Log logger = LoggerFactory.make();
+	 * </pre>
+	 * 
+	 * @return Liefert einen commons-logging <code>Log</code>.
+	 */
+	public static Logger make() {
+		Throwable t = new Throwable();
+		StackTraceElement directCaller = t.getStackTrace()[1];
+		return org.slf4j.LoggerFactory.getLogger(directCaller.getClassName());
+	}
 
 }

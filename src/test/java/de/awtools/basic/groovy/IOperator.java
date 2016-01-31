@@ -31,6 +31,6 @@ package de.awtools.basic.groovy;
  */
 public interface IOperator {
 
-    public int add(int x, int y);
+	public int add(int x, int y);
 
 }

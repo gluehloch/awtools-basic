@@ -33,7 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -86,19 +85,6 @@ public final class AWTools {
 			throw new IllegalStateException("There is a failure here.");
 		}
 		return set;
-	}
-
-	/**
-	 * Erstellt eine HashMap.
-	 *
-	 * @param <T>
-	 *            Typ der Keys.
-	 * @param <S>
-	 *            Typ der Werte.
-	 * @return Eine HashMap.
-	 */
-	public static <T, S> Map<T, S> hashMap() {
-		return (new HashMap<>());
 	}
 
 	/**

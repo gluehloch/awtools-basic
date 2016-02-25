@@ -11,6 +11,9 @@
       <action dev="andrewinkler" type="update" date="2015-12-15">
         Update to Mockito 1.10.8. Moved repository to GitHub. Update to Java 8.
       </action>
+      <action dev="andrewinkler" type="removed" date="2016-02-25">
+        Removed the AWTools#hashMap() method.
+      </action>
     </release>
 
     <release version="awtools-basic-1.3.0_a" date="2015-01-13"

@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- * Project gluehloch-util Copyright (c) 2004-2016 by Andre Winkler. All rights
+ * Project awtools-basic Copyright (c) 2000-2016 by Andre Winkler. All rights
  * reserved.
  * ============================================================================
  * GNU LESSER GENERAL PUBLIC LICENSE TERMS AND CONDITIONS FOR COPYING,
@@ -47,7 +47,17 @@ public class MethodFinderTest {
         assertThat(to(a), CoreMatchers.equalTo("to_Aaa"));
 
         object = a; // And now the interesting stuff...
+
+        // Das Master 'object' wird an die Methode #get(Master) übergeben. Java
+        // löst den Typen nicht zur Laufzeit auf und bindet den Methodenaufruf
+        // fest an #get(Master). Eine Skriptsprache wie Groovy arbeitet hier
+        // anders. Die Laufzeitumgebung schaut sich den Typen an und ermittelt
+        // -ebenfalls zur Laufzeit- die passende Methode.
         assertThat(get(object), CoreMatchers.equalTo("Master"));
+
+        // In der Template Variante findet die Methodenbindung ebenfalls zur
+        // Compile-Zeit statt. Über den Template Mechanismus weiss der
+        // Compiler, dass es sich hier um die Klasse Aaa handelt.
         assertThat(to(object), CoreMatchers.equalTo("to_Aaa"));
     }
 

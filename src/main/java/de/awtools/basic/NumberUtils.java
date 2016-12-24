@@ -42,6 +42,8 @@ import javax.swing.text.MaskFormatter;
  *       ersetzt.
  *
  * @todo Ein Cache für die verschiedenen Formatierungsklassen?
+ * 
+ * @todo Brauche ich sowas überhaupt noch? Vermutlich eher nicht.
  */
 public class NumberUtils {
 
@@ -59,25 +61,22 @@ public class NumberUtils {
 
     /** Das Default-Pattern. */
     private String pattern = DEFAULT_DECIMAL_FORMAT;
-
-    /**
-     * Setzt das Pattern neu.
-     *
-     * @param _pattern
-     *            Das zu verwendende Pattern.
-     */
-    public void setPattern(final String _pattern) {
-        setPatternAndLocale(locale, _pattern);
+    
+    public static NumberUtils numbero(String pattern) {
+        return numbero(Locale.getDefault(), pattern);
     }
 
-    /**
-     * Setzt das Locale neu.
-     *
-     * @param _locale
-     *            Das zu verwendende Locale.
-     */
-    public void setLocale(final Locale _locale) {
-        setPatternAndLocale(_locale, pattern);
+    public static NumberUtils numbero(Locale locale, String pattern) {
+        NumberUtils utils = new NumberUtils(locale, pattern);
+        return utils;
+    }
+
+    public NumberUtils(String _pattern) {
+        this(Locale.getDefault(), _pattern);
+    }
+
+    public NumberUtils(Locale _locale, String _pattern) {
+        setPatternAndLocale(_locale, _pattern);
     }
 
     /**
@@ -88,7 +87,7 @@ public class NumberUtils {
      * @param _pattern
      *            Das zu verwendende Pattern.
      */
-    public void setPatternAndLocale(final Locale _locale,
+    private void setPatternAndLocale(final Locale _locale,
             final String _pattern) {
         if (_locale == null) {
             locale = Locale.getDefault();

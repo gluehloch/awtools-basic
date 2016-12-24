@@ -49,8 +49,7 @@ public class NumberUtilsTest {
 
     @Test
     public void testNumberUtilsToInt() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setPatternAndLocale(Locale.GERMANY,
+        NumberUtils numberUtils = NumberUtils.numbero(Locale.GERMANY,
                 NumberUtils.DEFAULT_DECIMAL_FORMAT);
 
         assertThat(numberUtils.toInt("5")).isEqualTo(5);
@@ -63,8 +62,9 @@ public class NumberUtilsTest {
 
     @Test
     public void testNumberUtilsToIntFail() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
+        NumberUtils numberUtils = NumberUtils.numbero(Locale.GERMANY,
+                NumberUtils.DEFAULT_DECIMAL_FORMAT);
+
         try {
             numberUtils.toInt("a5");
             fail("Exception erwartet!");
@@ -82,8 +82,9 @@ public class NumberUtilsTest {
 
     @Test
     public void testNumberUtilsToDouble() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
+        NumberUtils numberUtils = NumberUtils.numbero(Locale.GERMANY,
+                NumberUtils.DEFAULT_DECIMAL_FORMAT);
+
         assertThat(numberUtils.toDouble("5")).isEqualTo(5., FEST_DELTA);
         assertThat(numberUtils.toDouble("5,0")).isEqualTo(5., FEST_DELTA);
         assertThat(numberUtils.toDouble("5,01")).isEqualTo(5.01, FEST_DELTA);
@@ -94,8 +95,9 @@ public class NumberUtilsTest {
 
     @Test
     public void testNumberUtilsToDoubleFail() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
+        NumberUtils numberUtils = NumberUtils.numbero(Locale.GERMANY,
+                NumberUtils.DEFAULT_DECIMAL_FORMAT);
+
         try {
             numberUtils.toDouble("a5");
             fail("Exception erwartet!");
@@ -113,8 +115,8 @@ public class NumberUtilsTest {
 
     @Test
     public void testFormat() {
-        NumberUtils numberUtils = new NumberUtils();
-        numberUtils.setLocale(Locale.GERMANY);
+        NumberUtils numberUtils = NumberUtils.numbero(Locale.GERMANY,
+                NumberUtils.DEFAULT_DECIMAL_FORMAT);
         assertThat(numberUtils.format(new Double(10.))).isEqualTo("10");
     }
 

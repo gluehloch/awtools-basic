@@ -28,6 +28,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -54,6 +55,19 @@ public class Java8ListElementFinder {
                 is(list.stream()
                         .filter((String a) -> StringUtils.equals("Lars", a))
                         .findFirst().get()));
+    }
+
+    @Test
+    public void findListElement2() {
+        List<String> list = Arrays.asList("Andre", "Lars", "Adam", "Erwin",
+                "Christine");
+        assertThat("Lars",
+                is(list.stream()
+                        .filter((String a) -> StringUtils.equals("Lars", a))
+                        .findFirst().get()));
+        
+        list.forEach(s -> System.out.println(s));
+        list.forEach(System.out::println);
     }
 
 }

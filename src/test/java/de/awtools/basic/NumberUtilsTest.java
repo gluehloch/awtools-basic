@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- * Project awtools-basic Copyright (c) 2000-2016 by Andre Winkler. All rights
+ * Project awtools-basic Copyright (c) 2000-2018 by Andre Winkler. All rights
  * reserved.
  * ============================================================================
  * GNU LESSER GENERAL PUBLIC LICENSE TERMS AND CONDITIONS FOR COPYING,
@@ -24,12 +24,12 @@
 
 package de.awtools.basic;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 import java.util.Locale;
 
-import org.fest.assertions.Delta;
+import org.assertj.core.data.Offset;
 import org.junit.Test;
 
 import de.awtools.basic.NumberUtils;
@@ -37,15 +37,11 @@ import de.awtools.basic.NumberUtils;
 /**
  * Testet die Klasse {@link de.awtools.basic.NumberUtils}.
  * 
- * @version $LastChangedRevision: 3725 $ $LastChangedDate: 2013-05-24 20:34:57
- *          +0200 (Fr, 24. Mai 2013) $
- * @author by Andre Winkler, $LastChangedBy: andrewinkler $
+ * @author by Andre Winkler
  */
 public class NumberUtilsTest {
 
-    private static final double DELTA = 0.00001;
-
-    private static final Delta FEST_DELTA = Delta.delta(DELTA);
+    private static final Offset<Double> DELTA = Offset.offset(0.00001);
 
     @Test
     public void testNumberUtilsToInt() {
@@ -85,12 +81,12 @@ public class NumberUtilsTest {
         NumberUtils numberUtils = NumberUtils.numbero(Locale.GERMANY,
                 NumberUtils.DEFAULT_DECIMAL_FORMAT);
 
-        assertThat(numberUtils.toDouble("5")).isEqualTo(5., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5,0")).isEqualTo(5., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5,01")).isEqualTo(5.01, FEST_DELTA);
-        assertThat(numberUtils.toDouble("5a")).isEqualTo(5., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5.0")).isEqualTo(50., FEST_DELTA);
-        assertThat(numberUtils.toDouble("5.00")).isEqualTo(500., FEST_DELTA);
+        assertThat(numberUtils.toDouble("5")).isEqualTo(5., DELTA);
+        assertThat(numberUtils.toDouble("5,0")).isEqualTo(5., DELTA);
+        assertThat(numberUtils.toDouble("5,01")).isEqualTo(5.01, DELTA);
+        assertThat(numberUtils.toDouble("5a")).isEqualTo(5., DELTA);
+        assertThat(numberUtils.toDouble("5.0")).isEqualTo(50., DELTA);
+        assertThat(numberUtils.toDouble("5.00")).isEqualTo(500., DELTA);
     }
 
     @Test

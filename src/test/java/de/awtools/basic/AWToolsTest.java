@@ -24,8 +24,8 @@
 
 package de.awtools.basic;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 import java.text.DateFormat;
 import java.text.ParseException;

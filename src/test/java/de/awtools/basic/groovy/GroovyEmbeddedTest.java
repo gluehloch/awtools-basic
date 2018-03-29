@@ -24,7 +24,7 @@
 
 package de.awtools.basic.groovy;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

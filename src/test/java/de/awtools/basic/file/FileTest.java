@@ -24,9 +24,9 @@
 
 package de.awtools.basic.file;
 
-import java.io.File;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.fest.assertions.Assertions.assertThat;
+import java.io.File;
 
 import org.junit.Test;
 

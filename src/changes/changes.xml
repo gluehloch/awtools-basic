@@ -6,8 +6,11 @@
   </properties>
   <body>
 
-    <release version="awtools-basic-1.4.0" date="2015-12-xx"
+    <release version="awtools-basic-1.4.0" date="2018-04-xx"
          description="POM update">
+      <action dev="andrewinkler" type="update" date="2018-03-29">
+        Removed fest-assert and replaced it with AssertJ.
+      </action>
       <action dev="andrewinkler" type="update" date="2015-12-15">
         Update to Mockito 1.10.8. Moved repository to GitHub. Update to Java 8.
       </action>

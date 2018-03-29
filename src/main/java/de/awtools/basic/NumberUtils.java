@@ -61,7 +61,7 @@ public class NumberUtils {
 
     /** Das Default-Pattern. */
     private String pattern = DEFAULT_DECIMAL_FORMAT;
-    
+
     public static NumberUtils numbero(String pattern) {
         return numbero(Locale.getDefault(), pattern);
     }

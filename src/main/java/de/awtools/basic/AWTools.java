@@ -30,6 +30,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -38,6 +40,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
@@ -108,24 +111,6 @@ public final class AWTools {
     /**
      * Wandelt einen double Wert in einen String anhand des angegebenen
      * Patterns. Siehe zu diesem Thema auch im Java-Tutorial bzw. API.
-     *
-     * <p>
-     * Apply the given pattern to this Format object. A pattern is a short-hand
-     * specification for the various formatting properties. These properties can
-     * also be changed individually through the various setter methods. There is
-     * no limit to integer digits set by this routine, since that is the typical
-     * end-user desire; use setMaximumInteger if you want to set a real value.
-     * For negative numbers, use a second pattern, separated by a semicolon
-     * </p>
-     * <p>
-     * Example "#,#00.0#" -> 1,234.56 This means a minimum of 2 integer digits,
-     * 1 fraction digit, and a maximum of 2 fraction digits.
-     * </p>
-     * <p>
-     * Example: "#,#00.0#;(#,#00.0#)" for negatives in parentheses. In negative
-     * patterns, the minimum and maximum counts are ignored; these are presumed
-     * to be set in the positive pattern.
-     * </p>
      * 
      * @param value
      *            Der zu konvertierende Wert.
@@ -155,9 +140,40 @@ public final class AWTools {
      *             Falls string gleich null.
      * @throws ParseException
      *             Der Parsevorgang schlug fehl.
+     * @deprecated Use {@link #toLocalDate_DD_MM_YYYY(String)}
      */
     public static Date stringToDate(final String string) throws ParseException {
         return stringToDate(string, "dd.MM.yyyy");
+    }
+
+    // DateTimeFormatter ist nicht veraenderlich und thread-safe!
+    private static final DateTimeFormatter DATE_TIME_FORMAT_DD_MM_YYYY = DateTimeFormatter
+            .ofPattern("dd.MM.yyyy");
+    private static final DateTimeFormatter DATE_TIME_FORMAT_YYYY_MM_DD = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd");
+
+    /**
+     * Formatiert einen Datums-String mit dem Format {@code dd.MM.yyyy} nach
+     * {@link LocalDate}.
+     * 
+     * @param date
+     *            Ein String mit dem Format {@code dd.MM.yyyy}
+     * @return Ein Datum.
+     */
+    public static LocalDate toLocalDate_DD_MM_YYYY(String date) {
+        return LocalDate.parse(date, DATE_TIME_FORMAT_DD_MM_YYYY);
+    }
+
+    /**
+     * Formatiert einen Datums-String mit dem Format {@code yyyy-MM-dd} nach
+     * {@link LocalDate}.
+     * 
+     * @param date
+     *            Ein String mit dem Format {@code yyyy-MM-dd}
+     * @return Ein Datum.
+     */
+    public static LocalDate toLocalDate_YYYY_MM_DD(String date) {
+        return LocalDate.parse(date, DATE_TIME_FORMAT_YYYY_MM_DD);
     }
 
     /**
@@ -171,6 +187,8 @@ public final class AWTools {
      * @return Der transformierte Wert.
      * @throws ParseException
      *             Der Parsevorgang schlug fehl.
+     * @deprecated Use {@link #toLocalDate_DD_MM_YYYY(String)} or another
+     *             feature of the Java 8 API.
      */
     public static Date stringToDate(final String string, final String format)
             throws ParseException {

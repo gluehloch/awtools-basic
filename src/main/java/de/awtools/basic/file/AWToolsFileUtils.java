@@ -339,7 +339,7 @@ public class AWToolsFileUtils {
      * Normalisiert einen Pfadausdruck. D.h. aus den Windows-Trenner werden
      * Unix-Trenner, aus /./ wird /. Falls / vorne fehlt, wird dieser
      * vorangestellt. Doppelte // werden durch / ersetzt. Windows
-     * Laufwerksbezeichner werden eliminiert.<br/>
+     * Laufwerksbezeichner werden eliminiert.<br />
      *
      * <b>ACHTUNG:</b> URL wie file://c:/temp werden nicht korrekt verarbeitet,
      * da das // ebenfalls durch / ersetzt wird.
@@ -384,7 +384,7 @@ public class AWToolsFileUtils {
     }
 
     /**
-     * Extrahiert aus einem Dateibezeichner den Verzeichnispfad. Beispiel:<br/>
+     * Extrahiert aus einem Dateibezeichner den Verzeichnispfad. Beispiel:<br />
      * Der Parameter <code>temp/ab/db/text.txt</code> führt zu der Rückgabe
      * <code>/temp/ab/db</code>. Ähnliches versucht die Methode
      * <code>File.getParent()</code>, kann aber z.B. die zwei Pfade

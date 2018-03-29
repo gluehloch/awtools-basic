@@ -29,6 +29,8 @@ import static org.fest.assertions.Fail.fail;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -37,9 +39,6 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.slf4j.Logger;
-
-import de.awtools.basic.LoggerFactory;
-import de.awtools.basic.AWTools;
 
 /**
  * Testet die Klasse WinString.
@@ -50,9 +49,25 @@ public class AWToolsTest {
 
     /** Der private Logger der Klasse. */
     private final Logger log = LoggerFactory.make();
+    
+    @Test
+    public void toLocalDate_DD_MM_YYYY() {
+        LocalDate localDate = AWTools.toLocalDate_DD_MM_YYYY("24.03.1971");
+        assertThat(localDate.getYear()).isEqualTo(1971);
+        assertThat(localDate.getMonth()).isEqualTo(Month.MARCH);
+        assertThat(localDate.getDayOfMonth()).isEqualTo(24);
+    }
 
     @Test
-    public void testStringToDate() {
+    public void toLocalDate_YYYY_MM_DD() {
+        LocalDate localDate = AWTools.toLocalDate_YYYY_MM_DD("1971-03-24");
+        assertThat(localDate.getYear()).isEqualTo(1971);
+        assertThat(localDate.getMonth()).isEqualTo(Month.MARCH);
+        assertThat(localDate.getDayOfMonth()).isEqualTo(24);
+    }
+
+    @Test
+    public void stringToDate() {
         try {
             AWTools.stringToDate(null);
             fail("Eine Exception erwartet.");
@@ -106,7 +121,7 @@ public class AWToolsTest {
     }
 
     @Test
-    public void testFormatDouble() {
+    public void formatDouble() {
         double[] value = new double[] { 100.01, 100.001, 89.3, 5555.5555, 12.1,
                 13.12, 5.5 };
 
@@ -122,7 +137,7 @@ public class AWToolsTest {
     }
 
     @Test
-    public void testReplacePlaceholder() {
+    public void replacePlaceholder() {
         String test = "Hallo ${name}! Wie war der ${heute}?";
         Map<String, String> placeholder = new HashMap<>();
 
@@ -140,19 +155,19 @@ public class AWToolsTest {
     }
 
     @Test
-    public void testAWToolsToString() {
+    public void awtoolsToString() {
         int[] array = new int[] { 1, 2, 3, 4, 5, 6 };
         assertThat(AWTools.toString(array)).isEqualTo("1,2,3,4,5,6");
     }
 
     @Test
-    public void testAWToolsToStringWithAnEmptyArray() {
+    public void awtoolsToStringWithAnEmptyArray() {
         int[] array = new int[] {};
         assertThat(AWTools.toString(array)).isEqualTo("");
     }
 
     @Test
-    public void testAWToolsToStringWithSingleElementArray() {
+    public void awtoolsToStringWithSingleElementArray() {
         int[] array = new int[] { 1 };
         assertThat(AWTools.toString(array)).isEqualTo("1");
     }

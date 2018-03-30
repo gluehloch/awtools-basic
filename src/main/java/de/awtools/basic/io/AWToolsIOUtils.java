@@ -35,7 +35,6 @@ import java.util.UUID;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.UnhandledException;
 import org.slf4j.Logger;
 
 import de.awtools.basic.LoggerFactory;
@@ -93,7 +92,7 @@ public class AWToolsIOUtils {
             return ImageIO.read(imageURL);
         } catch (IOException ex) {
             log.error("Fehler: ", ex);
-            throw new UnhandledException(ex);
+            throw new RuntimeException(ex);
         }
     }
 

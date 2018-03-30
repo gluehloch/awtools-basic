@@ -34,7 +34,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.apache.commons.lang.UnhandledException;
 import org.junit.Test;
 
 import de.awtools.basic.file.AWToolsFileUtils;
@@ -101,7 +100,7 @@ public class IOUtilsTest {
             }
             return buf.toString();
         } catch (IOException ex) {
-            throw new UnhandledException(ex);
+            throw new RuntimeException(ex);
         }
     }
 

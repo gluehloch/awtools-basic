@@ -71,7 +71,7 @@ public class AWToolsTest {
         try {
             AWTools.stringToDate(null);
             fail("Eine Exception erwartet.");
-        } catch (IllegalArgumentException ex) {
+        } catch (NullPointerException ex) {
             // Ok
         } catch (ParseException ex) {
             fail("Expected IllegalArgumentException!");

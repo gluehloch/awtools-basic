@@ -167,15 +167,11 @@ public class FTPWrapper {
     public boolean uploadFile(final String localFile, final String serverFile)
             throws IOException, FTPConnectionClosedException {
 
-        FileInputStream in = null;
         boolean result = false;
-        try {
-            in = new FileInputStream(localFile);
+        try (FileInputStream in = new FileInputStream(localFile)) {
             log.info("Downloading file ->{}<- to local file ->{}<-.",
                     serverFile, localFile);
             result = ftpClient.storeFile(serverFile, in);
-        } finally {
-            IOUtils.closeQuietly(in);
         }
         return result;
     }

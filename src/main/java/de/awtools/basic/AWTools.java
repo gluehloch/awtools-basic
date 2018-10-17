@@ -31,6 +31,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -148,6 +149,8 @@ public final class AWTools {
     // DateTimeFormatter ist nicht veraenderlich und thread-safe!
     private static final DateTimeFormatter DATE_TIME_FORMAT_DD_MM_YYYY = DateTimeFormatter
             .ofPattern("dd.MM.yyyy");
+    private static final DateTimeFormatter DATE_TIME_FORMAT_DD_MM_YYYY_HH_MI_SS = DateTimeFormatter
+            .ofPattern("dd.MM.yyyy HH:mm:ss");
     private static final DateTimeFormatter DATE_TIME_FORMAT_YYYY_MM_DD = DateTimeFormatter
             .ofPattern("yyyy-MM-dd");
 
@@ -161,6 +164,10 @@ public final class AWTools {
      */
     public static LocalDate toLocalDate_DD_MM_YYYY(String date) {
         return LocalDate.parse(date, DATE_TIME_FORMAT_DD_MM_YYYY);
+    }
+
+    public static LocalDateTime toLocalDateTime_DD_MM_YYYY_HH_MI_SS(String date) {
+        return LocalDateTime.parse(date, DATE_TIME_FORMAT_DD_MM_YYYY_HH_MI_SS );
     }
 
     /**

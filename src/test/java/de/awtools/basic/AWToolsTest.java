@@ -28,9 +28,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -49,7 +50,17 @@ public class AWToolsTest {
 
     /** Der private Logger der Klasse. */
     private final Logger log = LoggerFactory.make();
-    
+
+    // Datum: 1971-02-24 00:00:00 Uhr
+    private static final GregorianCalendar GREG_1971_02_24_00_00_00 = new GregorianCalendar(
+            1971, 2, 24, 0, 0, 0);
+    private static final String STRING_24_03_1971_00_00_00 = "24.03.1971 00:00:00";
+
+    // Datum: 1971-02-24 15:30:00 Uhr
+    private static final GregorianCalendar GREG_1971_02_24_15_30_00 = new GregorianCalendar(
+            1971, 2, 24, 15, 30, 0);
+    private static final String STRING_24_03_1971_15_30_00 = "24.03.1971 15:30:00";
+
     @Test
     public void toLocalDate_DD_MM_YYYY() {
         LocalDate localDate = AWTools.toLocalDate_DD_MM_YYYY("24.03.1971");
@@ -67,57 +78,57 @@ public class AWToolsTest {
     }
 
     @Test
-    public void stringToDate() {
+    public void stringToDateWithNullParameter() {
         try {
-            AWTools.stringToDate(null);
+            AWTools.toLocalDate_DD_MM_YYYY(null);
             fail("Eine Exception erwartet.");
         } catch (NullPointerException ex) {
             // Ok
-        } catch (ParseException ex) {
-            fail("Expected IllegalArgumentException!");
         }
+    }
 
-        // Ein 24.12.2002 in Date umwandeln.
-        GregorianCalendar greg1 = new GregorianCalendar(1971, 2, 24, 0, 0, 0);
-        String stringDate1 = "24.3.1971 00:00:00";
-        GregorianCalendar greg2 = new GregorianCalendar(1971, 2, 24, 15, 30, 0);
-        String stringDate2 = "24.3.1971 15:30:00";
+    @Test
+    public void stringToDate() {
+        LocalDateTime convert = AWTools
+                .toLocalDateTime_DD_MM_YYYY_HH_MI_SS(
+                        STRING_24_03_1971_00_00_00);
 
-        try {
-            Date convert = AWTools.stringToDate(stringDate1,
-                    "dd.MM.yyyy HH:mm:ss");
-
-            log.debug("Input: " + stringDate1);
+        if (log.isDebugEnabled()) {
+            log.debug("Input: " + STRING_24_03_1971_00_00_00);
             log.debug("Equal: "
-                    + DateFormat.getDateInstance().format(greg1.getTime()));
+                    + DateFormat.getDateInstance()
+                            .format(GREG_1971_02_24_00_00_00.getTime()));
             log.debug("Parse: " + convert);
             log.debug("Conv : " + DateFormat.getDateInstance().format(convert));
-
-            assertThat(convert).isNotNull();
-            assertThat(convert).isEqualTo(greg1.getTime());
-            assertThat(greg1.getTime().compareTo(convert)).isEqualTo(0);
-        } catch (ParseException ex) {
-            log.debug("ParseException", ex);
-            fail("Eine ParseException erwartet.");
         }
 
-        try {
-            Date convert = AWTools.stringToDate(stringDate2,
-                    "dd.MM.yyyy HH:mm:ss");
+        assertThat(convert).isNotNull();
+        assertThat(convert).isEqualTo(LocalDateTime.of(1971, 3, 24, 0, 0, 0));
+        assertThat(convert)
+                .isEqualTo(convertToLocalDateTimeViaInstant(
+                        GREG_1971_02_24_00_00_00.getTime()));
 
-            log.debug("Input: " + stringDate2);
+        convert = AWTools.toLocalDateTime_DD_MM_YYYY_HH_MI_SS(
+                STRING_24_03_1971_15_30_00);
+
+        if (log.isDebugEnabled()) {
+            log.debug("Input: " + STRING_24_03_1971_15_30_00);
             log.debug("Equal: " + DateFormat.getDateInstance(DateFormat.LONG)
-                    .format(greg2.getTime()));
+                    .format(GREG_1971_02_24_15_30_00.getTime()));
             log.debug("Parse: " + convert);
             log.debug("Conv : " + DateFormat.getDateInstance().format(convert));
-
-            assertThat(convert).isNotNull();
-            assertThat(convert).isEqualTo(greg2.getTime());
-            assertThat(convert).isEqualTo(greg2.getTime());
-        } catch (ParseException ex) {
-            log.debug("ParseException", ex);
-            fail("Eine ParseException erwartet.");
         }
+
+        assertThat(convert).isNotNull();
+        assertThat(convert).isEqualTo(LocalDateTime.of(1971, 3, 24, 15, 30));
+        assertThat(convert).isEqualTo(convertToLocalDateTimeViaInstant(
+                GREG_1971_02_24_15_30_00.getTime()));
+    }
+
+    public LocalDateTime convertToLocalDateTimeViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
     }
 
     @Test
@@ -131,7 +142,7 @@ public class AWToolsTest {
         for (int i = 0; i < value.length; i++) {
             String x = AWTools.toString(value[i], "###,##0.00", Locale.GERMAN);
 
-            log.debug("Alt: " + new Double(value[i]) + " Neu: " + x);
+            log.debug(String.format("Alt: %f Neu: %s", value[i], x));
             assertThat(x).isEqualTo(conv[i]);
         }
     }
